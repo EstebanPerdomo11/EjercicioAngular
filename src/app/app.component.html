@@ -1,0 +1,21 @@
+<form [formGroup]="alumnForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Nombre:</label>
+    <input id="name" formControlName="name" type="text" />
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" />
+  </div>
+  <button type="submit">Enviar</button>
+</form>
+
+<!-- Mostrar los datos enviados -->
+<div *ngIf="submitted && alumnList.length > 0">
+  <h3>Datos Enviados:</h3>
+  <ul>
+    <li *ngFor="let alumn of alumnList">
+      <strong>Nombre:</strong> {{ alumn.name }}, <strong>Email:</strong> {{ alumn.email }}
+    </li>
+  </ul>
+</div>
